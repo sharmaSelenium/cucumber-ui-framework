@@ -85,12 +85,6 @@ public class Wrappers extends BaseWebPage {
         executor.executeScript("arguments[0].click();", element);
     }
 
-    public static void clearAndType(WebElement element, String text) {
-        element.clear();
-        element.sendKeys(text);
-    }
-
-
     public static void selectByValue(WebElement eleDropdown, final String value) {
         Select select = new Select(eleDropdown);
         select.selectByValue(value);
@@ -108,6 +102,23 @@ public class Wrappers extends BaseWebPage {
         actions.doubleClick(element).perform();
     }
 
+    public static boolean ifElementPresent(WebElement element) {
+        try {
+            element.isEnabled();
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public static boolean ifElementPresent(String xPath) {
+        try {
+            driver.findElement(By.xpath(xPath));
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
 
     private static int getImplicitWaitTimeInSec(int timeOutInSec) {
         int waitTime;

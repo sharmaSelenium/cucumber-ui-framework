@@ -8,12 +8,12 @@ Feature: Accommodation search
   Scenario Outline: Search accommodation by city names
     Given I am on booking.com home page
     When I search hotel with following criteria
-      | city   | checkInDaysFromToday | checkoutDaysFromToday | adults | children | rooms |
-      | Dubai  | 4                    | 8                     | 4      | 1        | 2     |
+      | city  | checkInDaysFromToday | checkoutDaysFromToday | adults | children | rooms |
+      | Dubai | 10                   | 18                    | 4      | 1        | 2     |
     Then I can see hotels for "<city>" destination
     Examples:
-    | city  |
-    | Dubai |
+      | city  |
+      | Dubai |
 
 
 

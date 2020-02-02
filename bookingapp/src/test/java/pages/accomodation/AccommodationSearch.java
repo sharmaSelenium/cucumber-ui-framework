@@ -3,6 +3,7 @@ package pages.accomodation;
 import static utils.TestUtil.getFutureDateInFormat;
 import static utils.Wrappers.doubleClick;
 import static utils.Wrappers.element;
+import static utils.Wrappers.ifElementPresent;
 import static utils.Wrappers.jsClick;
 import static utils.Wrappers.waitUntilClickable;
 import static utils.Wrappers.waitUntilVisible;
@@ -47,6 +48,9 @@ public class AccommodationSearch extends HomePage {
     @FindBy(xpath = "//label[text()='Rooms']/../following-sibling::div/button[2]/span")
     private WebElement addRooms;
 
+    @FindBy(xpath = "//div[@data-bui-ref='calendar-next']")
+    private WebElement calendarNext;
+
     public AccommodationSearch(WebDriver driver) {
         super(driver);
     }
@@ -73,6 +77,12 @@ public class AccommodationSearch extends HomePage {
     }
     public void selectCheckInDate(int checkInDaysFromToday ){
         String checkInDate = getFutureDateInFormat("yyyy-MM-dd", checkInDaysFromToday);
+
+        while (!ifElementPresent("//td[@data-date='" + checkInDate + "']")){
+            System.out.println("inside while");
+            calendarNext.click();
+            break;
+        }
         waitUntilClickable(element("//td[@data-date='" + checkInDate + "']") ,0);
         jsClick(element("//td[@data-date='" + checkInDate + "']"));
 
@@ -80,6 +90,11 @@ public class AccommodationSearch extends HomePage {
 
     public void selectCheckoutDate(int checkoutDaysFromToday){
         String checkOutDate = getFutureDateInFormat("yyyy-MM-dd", checkoutDaysFromToday);
+        while (!ifElementPresent("//td[@data-date='" + checkOutDate + "']")){
+            System.out.println("inside while");
+            calendarNext.click();
+            break;
+        }
         waitUntilClickable(element("//td[@data-date='" + checkOutDate + "']") ,0);
         jsClick(element("//td[@data-date='" + checkOutDate + "']"));
     }
