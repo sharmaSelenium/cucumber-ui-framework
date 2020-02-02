@@ -5,7 +5,7 @@ Booking.com UI scenarios are automated using Cucumber framework
 
 2. **File Paths:**
      - **_Features:_** ./src/test/resources/features
-     - **_Step Defenitions:_** ./src/test/java/steps
+     - **_Step Definitions:_** ./src/test/java/steps
      - **_Pages:_**  ./src/test/java/pages
 
 3. 76.0 Chrome driver version is in use https://chromedriver.storage.googleapis.com/index.html?path=76.0.3809.68/
@@ -23,24 +23,24 @@ Booking.com UI scenarios are automated using Cucumber framework
     ```
     ```
      - **_Optional Parameters:_**
-    ```bash
+    ```bash With Tags
     -DcucumberTags="**Pass Cucumber Tag and combinations here**"
     ```
-    ```bash
+    ```bash Parallel Run
     -DforkCount="**Pass number of parallel threads here**"
     ```
     
     ```bash
     -DdriverTimeout="**Pass timeout secs to override default timeout 10**"
     ```
-    ```bash
+    ```bash Headless run
     -DbrowserMode="** Pass headless or normal here**"
     ```
     ```bash
     -Dfailsafe.rerunFailingTestsCount="**Pass number of re runs during failure here**"
     ```
     ```
-    ```bash
+    ```bash Screenshots
     -DscreenShot="**Pass failure or allSteps here**"
     ```
    
@@ -56,7 +56,7 @@ Booking.com UI scenarios are automated using Cucumber framework
     ```bash
     -Dfailsafe.rerunFailingTestsCount=1
     ```
-    ```bash Headless
+    ```bash Headless Testing
     -DbrowserMode="headless"
     ```
 

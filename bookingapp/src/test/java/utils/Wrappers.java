@@ -1,6 +1,7 @@
 package utils;
 
 import java.time.Duration;
+import java.util.List;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -128,6 +129,12 @@ public class Wrappers extends BaseWebPage {
             waitTime = timeOutInSec;
         }
         return waitTime;
+    }
+
+    public static List<WebElement> elements(String value) {
+        List<WebElement> elements = null;
+        elements = driver.findElements(By.xpath(value));
+        return elements;
     }
 
 }

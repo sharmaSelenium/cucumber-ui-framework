@@ -3,6 +3,7 @@ package pages.accomodation;
 import static utils.TestUtil.getFutureDateInFormat;
 import static utils.Wrappers.doubleClick;
 import static utils.Wrappers.element;
+import static utils.Wrappers.elements;
 import static utils.Wrappers.ifElementPresent;
 import static utils.Wrappers.jsClick;
 import static utils.Wrappers.waitUntilClickable;
@@ -135,6 +136,10 @@ public class AccommodationSearch extends HomePage {
                 addRooms.click();
             }
         }
+    }
+
+    public boolean verifyHotelPricesInSelectedCurrency(String currency){
+        return elements("//div[@class='room_details ']//span[contains(text(),'" + currency + "')]").size() > 0 ;
     }
 
 

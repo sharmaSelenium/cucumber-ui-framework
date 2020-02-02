@@ -12,8 +12,8 @@ import org.junit.Assert;
 import pages.HomePage;
 
 public class AccommodationSteps {
-    private HomePage homePage = new HomePage(getDriver());
 
+    private HomePage homePage = new HomePage(getDriver());
 
     @Given("I am on booking.com home page")
     public void iAmOnBookingComHomePage() {
@@ -42,6 +42,14 @@ public class AccommodationSteps {
         Assert.assertEquals("Expected destination should be " + city + "", city,
             homePage.accommodation().searchResults().getDestinationName());
 
+    }
+
+    @Then("I can see hotel prices in selected {string} currency")
+    public void iCanSeeHotelPricesInSelectedCurrency(String currency) {
+        Assert.assertTrue("Accommodation search results should be displayed",
+            homePage.accommodation().searchResults().verifyAccommodationSearchResultsLoaded());
+        Assert.assertTrue("Hotel Prices should be displayed in currency " + currency + "",
+            homePage.accommodation().searchResults().verifyHotelPricesInSelectedCurrency(currency));
     }
 
 }

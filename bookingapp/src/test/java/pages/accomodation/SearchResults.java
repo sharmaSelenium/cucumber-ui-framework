@@ -6,8 +6,11 @@ import static utils.Wrappers.waitUntilVisible;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import pages.HomePage;
 
 public class SearchResults extends AccommodationSearch {
+
+    private HomePage homePage = new HomePage(getDriver());
 
     @FindBy(xpath = "//input[@id='ss']")
     private WebElement destination;
