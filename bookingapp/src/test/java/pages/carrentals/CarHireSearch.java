@@ -7,6 +7,8 @@ import static utils.Wrappers.selectByValue;
 import static utils.Wrappers.waitUntilClickable;
 import static utils.Wrappers.waitUntilVisible;
 
+import java.util.HashMap;
+import java.util.Map;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -83,6 +85,10 @@ public class CarHireSearch extends HomePage {
         selectByValue(dropOffHrs, dropOffHours);
         waitUntilClickable(dropOffMins,0);
         selectByValue(dropOffMins, dropOffMinutes);
+        Map<String ,HashMap<String,String>> map = new HashMap<>();
+        HashMap<String,String> map1 = new HashMap<>();
+        map.put("Nitish",map1 );
+        map.remove("Nitish");
     }
 
 }
